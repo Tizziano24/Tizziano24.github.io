@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - EICO</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./imagenes/logoeico.png" type="image/png">
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styleslogin.css">
+</head>
+<body>
+  <div class="overlay">
+    <!-- Logo y título -->
+    <div class="logo-container">
+      <div class="logo"></div>
+      <div class="logo-text">EICO</div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="container" id="form-container">
+      <h2 id="form-title">Iniciar Sesión</h2>
+
+      <!-- Formulario de Login -->
+      <form id="login-form">
+        <input type="email" id="loginEmail" placeholder="Correo Electrónico" required>
+        <input type="password" id="loginPass" placeholder="Contraseña" required>
+        <div class="phone-group">
+          <select id="loginCode">
+            <option value="+54">+54</option>
+            <option value="+34">+34</option>
+            <option value="+1">+1</option>
+          </select>
+          <input type="tel" id="loginPhone" placeholder="Teléfono" required>
+        </div>
+        <button type="submit">Ingresar</button>
+
+        <div class="social-login">
+          <div class="social-btn" onclick="oauth('Google')">
+            <img src="./imagenes/google-02.png" width="16" alt="Google"> Google
+          </div>
+          <div class="social-btn" onclick="oauth('Apple')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" width="16" alt="Apple"> Apple
+          </div>
+        </div>
+
+        <div class="toggle-link" onclick="toggleForm()">¿No tienes cuenta? Regístrate</div>
+      </form>
+
+      <!-- Formulario de Registro -->
+      <form id="register-form" style="display:none;">
+        <input type="text" id="regName" placeholder="Nombre Completo" required>
+        <input type="text" id="regDoc" placeholder="DNI / Pasaporte" required>
+        <input type="email" id="regEmail" placeholder="Correo Electrónico" required>
+        <div class="phone-group">
+          <select id="regCode">
+            <option value="+54">+54</option>
+            <option value="+34">+34</option>
+            <option value="+1">+1</option>
+          </select>
+          <input type="tel" id="regPhone" placeholder="Teléfono" required>
+        </div>
+        <input type="text" id="regTrack" placeholder="Carrera o Curso" required>
+        <input type="password" id="regPass" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+        <div class="toggle-link" onclick="toggleForm()">¿Ya tienes cuenta? Inicia Sesión</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Botón de tema - esquina superior derecha -->
+  <button class="theme-toggle" id="themeBtn">🌙</button>
+
+  <!-- ✅ Botón de volver al inicio - esquina inferior izquierda -->
+  <button class="back-btn" onclick="goHome()">←</button>
+<script src="scriptlogin.js"></script>
+</body>
+</html>

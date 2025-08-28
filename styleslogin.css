@@ -1,0 +1,278 @@
+    :root {
+      --bg: #f9f5f0;
+      --bg-overlay: rgba(255, 255, 255, 0.95);
+      --text: #333;
+      --btn: #b5854d;
+      --btn-hover: #a1723e;
+      --border: rgba(0, 0, 0, 0.1);
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark {
+      --bg: #121212;
+      --bg-overlay: rgba(30, 30, 30, 0.95);
+      --text: #e6dcd3;
+      --btn: #d8a872;
+      --btn-hover: #c89a70;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+        /* ===================== VARIABLES BASE ===================== */
+  /* ===================== TEMA EICO SUAVIZADO ===================== */
+body.theme-mosconi {
+  --bg: #f5fdf5;                 /* Fondo verde muy clarito */
+  --card: #359921;               /* Tarjetas en blanco limpio */
+  --surface: #1b3a1b;            /* Verde agradable para la barra superior */
+  --text: #ffffff;               /* Verde oscuro agradable */
+  --text2: #000000;
+  --text-muted: #7fbf7f;         /* Verde grisáceo suave */
+  --accent: #4ac23d;             /* Amarillo suave */
+  --accent-light: #eaf7ea;       /* Fondo clarito en hover */
+  --accent-highlight: #ffd54f;   /* Amarillo cálido */
+  --border: #ffd54f;             /* Borde amarillo */
+  --shadow: 0 6px 20px rgba(76, 175, 80, 0.25);
+  --shadow-lg: 0 12px 30px rgba(76, 175, 80, 0.35);
+}
+
+/* ===================== TEMA EICO OSCURO SUAVIZADO ===================== */
+body.theme-mosconi.dark {
+  --bg: #121a12;                 /* Verde muy oscuro de fondo */
+  --card: #2c5524;               /* Tarjetas verde oscuro */
+  --surface: #1b3a1b;            /* Verde más intenso para barra superior */
+  --text: #e8f5e9;               /* Texto casi blanco verdoso */
+  --text2: #000000;  
+  --text-muted: #a5d6a7;         /* Verde claro para secundarios */
+  --accent: #3d7737;             /* Amarillo pastel */
+  --accent-light: #336633;       /* Verde oscuro clarito en hover */
+  --accent-highlight: #ffd54f;   /* Amarillo cálido */
+  --border: #ffe082;             /* Amarillo pastel */
+  --shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
+  --shadow-lg: 0 12px 30px rgba(46, 125, 50, 0.35);
+}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('./imagenes/eico.png') no-repeat center center / cover;
+      min-height: 100vh;
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .overlay {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* === LOGO Y TÍTULO === */
+    .logo-container {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background-image: url('./imagenes/logoeico.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-text {
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 24px;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* === FORMULARIO === */
+    .container {
+      background: var(--bg-overlay);
+      padding: 30px;
+      border-radius: 16px;
+      width: 360px;
+      max-width: 100%;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+      color: var(--btn);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      outline: none;
+      font-size: 14px;
+      background: white;
+      color: var(--text);
+      transition: border 0.2s;
+    }
+
+    body.dark input, body.dark select {
+      background: #444;
+      color: #e6dcd3;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--btn);
+      box-shadow: 0 0 0 2px rgba(181, 133, 77, 0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      background: var(--btn);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--btn-hover);
+    }
+
+    /* === BOTONES SOCIALES === */
+    .social-login {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      gap: 8px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #333;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .social-btn:hover {
+      background: #555;
+    }
+
+    /* === GRUPO DE TELÉFONO === */
+    .phone-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-group select {
+      width: 35%;
+      text-align: center;
+    }
+
+    .phone-group input {
+      width: 65%;
+    }
+
+    /* === ENLACE DE CAMBIO DE FORMULARIO === */
+    .toggle-link {
+      text-align: center;
+      margin-top: 16px;
+      color: var(--btn);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
+
+    /* === BOTÓN DE TEMA (esquina superior derecha) === */
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-overlay);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .theme-toggle:active {
+      transform: translateY(0);
+    }
+
+    /* === BOTÓN DE VOLVER (esquina inferior izquierda) === */
+    .back-btn {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #E57373; /* 🍬 Rojo caramelo suave */
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(229, 115, 115, 0.3);
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      background: #D35454;
+      box-shadow: 0 6px 16px rgba(229, 115, 115, 0.4);
+    }
+
+    .back-btn:active {
+      transform: translateY(0);
+    }

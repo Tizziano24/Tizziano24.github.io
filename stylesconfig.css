@@ -1,0 +1,299 @@
+    /* ===================== VARIABLES BASE ===================== */
+  /* ===================== TEMA EICO SUAVIZADO ===================== */
+body.theme-mosconi {
+  --bg: #f5fdf5;                 /* Fondo verde muy clarito */
+  --card: #3c7e2e;               /* Tarjetas en blanco limpio */
+  --surface: #295c29;            /* Verde agradable para la barra superior */
+  --text: #ffffff;               /* Verde oscuro agradable */
+  --text2: #000000;
+  --text-muted: #7fbf7f;         /* Verde grisáceo suave */
+  --accent: #49ac3e;             /* Amarillo suave */
+  --accent-light: #eaf7ea;       /* Fondo clarito en hover */
+  --accent-highlight: #ffd54f;   /* Amarillo cálido */
+  --border: #ffd54f;             /* Borde amarillo */
+  --shadow: 0 6px 20px rgba(76, 175, 80, 0.25);
+  --shadow-lg: 0 12px 30px rgba(76, 175, 80, 0.35);
+}
+
+/* ===================== TEMA EICO OSCURO SUAVIZADO ===================== */
+body.theme-mosconi.dark {
+  --bg: #121a12;                 /* Verde muy oscuro de fondo */
+  --card: #2c5524;               /* Tarjetas verde oscuro */
+  --surface: #1b3a1b;            /* Verde más intenso para barra superior */
+  --text: #e8f5e9;               /* Texto casi blanco verdoso */
+  --text2: #000000;  
+  --text-muted: #a5d6a7;         /* Verde claro para secundarios */
+  --accent: #3d7737;             /* Amarillo pastel */
+  --accent-light: #336633;       /* Verde oscuro clarito en hover */
+  --accent-highlight: #ffd54f;   /* Amarillo cálido */
+  --border: #ffe082;             /* Amarillo pastel */
+  --shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
+  --shadow-lg: 0 12px 30px rgba(46, 125, 50, 0.35);
+}
+:root {
+  --bg: #ffefdd;
+  --card: #e0c7aa;
+  --surface: #c2a27e;
+  --text: #3a312a;
+  --text-muted: #6c5e50;
+  --accent: #b88f6a;
+  --accent-light: #b88f6a;
+  --accent-highlight: #c89a70;
+  --border: #665b4e;
+  --notify: #e74c3c;
+  --shadow: 0 6px 20px rgba(184, 143, 106, 0.08);
+  --shadow-lg: 0 12px 30px rgba(184, 143, 106, 0.12);
+  --radius: 16px;
+  --transition: all 0.28s ease;
+}
+
+body.dark {
+  --bg: #5c4634;
+  --card: #3b2d1b;
+  --surface: #493b29;
+  --text: #e6dcd3;
+  --text-muted: #b8a99a;
+  --accent: #997f5f;
+  --accent-light: #997f5f;
+  --accent-highlight: #d8a872;
+  --border: #b39b84;
+  --notify: #c0392b;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+    /* ===================== RESET Y GENERAL ===================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg) no-repeat center/cover;
+      color: var(--text);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* ===================== TOPBAR ===================== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--surface);
+      padding: 12px 20px;
+      box-shadow: var(--shadow);
+      border-bottom: 5px solid var(--border);
+      transition: background 0.4s, border-color 0.4s;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: var(--text);
+    }
+
+    .brand .logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background-image: url('./imagenes/logoeico.png');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .brand .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .brand .name {
+      font-size: 18px;
+    }
+
+    .icon-btn {
+      margin-left: auto;
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 10px;
+      background: var(--card);
+      border: 3px solid var(--border);
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.08);
+    }
+
+    /* ===================== CONTENIDO ===================== */
+    .content {
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      animation: fadeIn 0.6s ease;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .settings-title {
+      font-size: 24px;
+      margin-bottom: 28px;
+      color: var(--text);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin: 24px 0 18px;
+      color: var(--text);
+      font-weight: 600;
+      border-bottom: 3px solid var(--border);
+      padding-bottom: 8px;
+      transition: border-color 0.4s;
+    }
+
+    /* ===================== OPCIONES DE TEMA ===================== */
+    .theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  background: var(--card);   /* ahora sigue el modo claro/oscuro */
+  border-radius: 14px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+
+    .theme-option:hover {
+      background: var(--accent-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .theme-option.selected {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: rgb(43, 151, 0);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .theme-name {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .theme-preview {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .theme-preview.base {
+      background: #f2ebe3;
+      border: 2px solid #d0c6bb;
+      color: #3a312a;
+    }
+
+    .theme-preview.eico {
+      background-image: url('./imagenes/logoeico.png');
+      background-size: cover;
+      background-position: center;
+      border: 3px solid transparent;
+    }
+
+    /* ===================== FONDO PERSONALIZADO ===================== */
+    .bg-section {
+      margin-top: 28px;
+    }
+
+    .bg-input {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .bg-input input {
+      padding: 10px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .bg-input input:hover {
+      border-color: var(--accent);
+    }
+
+    .bg-input button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: var(--accent-highlight);
+      color: #ffffff;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .bg-input button:hover {
+      background: var(--accent);
+    }
+
+    /* ===================== BOTÓN VOLVER ===================== */
+    .btn-back {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 30px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .btn-back:hover {
+      background: var(--accent-highlight);
+      transform: scale(1.03);
+    }

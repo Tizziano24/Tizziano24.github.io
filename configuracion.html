@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EICO — Configuración</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./imagenes/logoeico.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylesconfig.css">
+</head>
+<body>
+  <!-- ===================== TOPBAR ===================== -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="name">Configuración</div>
+    </div>
+    <button id="themeBtn" class="icon-btn" title="Cambiar modo claro/oscuro">
+      <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <circle cx="12" cy="12" r="5" fill="#FFD700"/>
+      </svg>
+      <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+  <!-- ===================== CONTENIDO ===================== -->
+  <main class="content">
+    <h2 class="settings-title">Ajustes de la Aplicación</h2>
+
+    <h3 class="section-title center">Temas</h3>
+    <div class="theme-option selected" data-theme="base">
+      <span class="theme-name">Tema Base</span>
+      <div class="theme-preview base">🪄</div>
+    </div>
+    <div class="theme-option" data-theme="mosconi">
+      <span class="theme-name">Tema EICO</span>
+      <div class="theme-preview eico"></div>
+    </div>
+    <button class="btn-back" onclick="goBack()">← Volver al inicio</button>
+  </main>
+  <script src="scriptconfig.js"></script>
+</body>
+</html>

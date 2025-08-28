@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EICO</title>
+  <!-- ✅ Favicon (logo en head) -->
+  <link rel="icon" href="./imagenes/logoeico.png" type="image/png">
+  <link href="pagina base/imagenes/logoeico.png" rel="stylesheet">
+  <link rel="stylesheet" href="stylesindex.css">
+</head>
+<body>
+  <div class="container"></div>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <!-- ✅ Logo al lado de EICO -->
+      <div class="logo"></div>
+      <link rel="icon" href="imagenes/eico.png" type="image/png">
+      <div class="name">EICO</div>
+    </div>
+    <div class="search">
+      <span style="color:var(--text-muted)">🔍</span>
+      <input id="search" type="search" placeholder="Buscar clases, tareas o tableros..." aria-label="Buscar">
+    </div>
+    <div class="actions" style="display:flex;align-items:center;gap:10px">
+      <!-- Botón de modo oscuro -->
+      <button id="themeBtn" class="icon-btn" title="Cambiar tema">
+        <svg id="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2">
+          <circle cx="12" cy="12" r="5" fill="#FFD700"/>
+          <g stroke="#FFD700">
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </g>
+        </svg>
+        <svg id="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Notificaciones -->
+      <button id="bellBtn" class="icon-btn" title="Notificaciones">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class="notify-dot"></span>
+      </button>
+
+      <!-- Iniciar sesión (redirige a login.html) -->
+      <a id="loginLink" class="login-link" href="login.html">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Iniciar sesión
+      </a>
+      <a id="profileLink" class="profile-link" href="#" style="display:none">
+        <img src="https://i.pravatar.cc/120?img=12" alt="Perfil" class="avatar">
+      </a>
+    </div>
+  </header>
+
+  <!-- Panel de Notificaciones -->
+  <div id="notifyPanel" class="notify-panel">
+    <div class="notify-header">Notificaciones</div>
+    <div class="notify-list" id="notifyList">
+      <div class="notify-item unread">
+        <strong>TP1 entregado</strong>
+        <small>Programación I - hace 2h</small>
+      </div>
+      <div class="notify-item">
+        <strong>Nueva clase programada</strong>
+        <small>Álgebra - ayer</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" style="display:none">Nueva columna creada</div>
+
+  <!-- LAYOUT -->
+  <div class="content" id="mainContent">
+    <!-- Pestañas Clases / Tableros -->
+    <div class="tabs">
+      <div class="tab active" data-tab="classes">Clases</div>
+      <div class="tab" data-tab="boards">Tableros</div>
+    </div>
+
+    <!-- Vista: Clases -->
+    <section id="view-classes" class="active">
+      <div class="classes" id="classesGrid"></div>
+    </section>
+
+    <!-- Vista: Tableros -->
+    <section id="view-boards" style="display:none">
+      <div class="boards" id="boards"></div>
+      <div class="new-col" id="addColumn">+ Agregar columna</div>
+    </section>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <button id="sbToggle" class="toggle-sidebar">☰</button>
+    <nav class="menu">
+      <!-- Calendario redirige a calendario.html -->
+      <a href="calendario.html" class="menu-item">📅 Calendario</a>
+      <a href="configuracion.html" class="menu-item">⚙ Ajustes</a>
+    </nav>
+    <hr style="border:0;border-top:1px solid var(--border);margin:12px 0">
+    <div style="font-size:12px;color:var(--text-muted)">💡 Haz clic en los días con tareas.</div>
+  </aside>
+  <!-- ===== MODAL DE CLASE ===== -->
+<div id="classModal" class="modal" style="display:none">
+  <div class="modal-content">
+    <header class="modal-header">
+      <h3 id="modalClassTitle">Programación I</h3>
+      <button id="closeModal" class="modal-close">&times;</button>
+    </header>
+    <div class="modal-body" id="topicsList">
+      <!-- Aquí se cargarán los temas dinámicamente -->
+       <main>
+      <a href="configuracion.html" class="btn">Configuración</a>
+      <a href="otra-pagina.html" class="btn">Otra Página</a>
+    </main>
+    </div>
+  </div>
+</div>
+<script src="scriptindex.js"></script>
+</body>
+</html>
